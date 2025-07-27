@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>World of robots</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<h1>Game of Robots</h1>
+
+<section class="controls">
+    <form id="taskForm">
+        <label>
+            Robot ID (empty = broadcast):
+            <input type="text" name="robotId" placeholder="e.g. 1234-abcd"/>
+        </label>
+        <label>
+            Task Type:
+            <select name="type">
+                <option value="MOVE">Move</option>
+                <option value="KILL">Self-destruct</option>
+            </select>
+        </label>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<section class="log">
+    <h2>Activity Log</h2>
+    <div id="logContainer"></div>
+</section>
+
+<script th:src="@{/js/sse-client.js}"></script>
+</body>
+</html>

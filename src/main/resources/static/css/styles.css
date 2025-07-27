@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.controls {
+    margin-bottom: 20px;
+}
+.controls form label {
+    margin-right: 15px;
+}
+.log {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+#logContainer {
+    max-height: 500px;
+    overflow-y: auto;
+}
+.log-entry {
+    padding: 4px;
+    border-bottom: 1px solid #eee;
+}
