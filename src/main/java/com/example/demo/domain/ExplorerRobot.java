@@ -13,8 +13,11 @@ public class ExplorerRobot extends AbstractRobot {
     public void perform(Task task) {
         LogService.sendLog(getType() + " [" + getId() + "] starts exploring");
         task.execute(this);
-        // креативность: имитируем анализ области
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+
+        }
         LogService.sendLog(getType() + " [" + getId() + "] finished exploring");
     }
 }

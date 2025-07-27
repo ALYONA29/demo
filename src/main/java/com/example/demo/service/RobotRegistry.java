@@ -39,18 +39,13 @@ public class RobotRegistry {
                 .collect(Collectors.toList());
     }
 
-    public AbstractRobot createRobot(String type) {
+    public void createRobot(String type) {
         AbstractRobot robot;
-        switch (type) {
-            case "Cleaner":
-                robot = new CleanerRobot();
-                break;
-            case "Explorer":
-            default:
-                robot = new ExplorerRobot();
-                break;
+        if (type.equals("Cleaner")) {
+            robot = new CleanerRobot();
+        } else {
+            robot = new ExplorerRobot();
         }
         register(robot);
-        return robot;
     }
 }

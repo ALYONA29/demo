@@ -13,8 +13,11 @@ public class CleanerRobot extends AbstractRobot {
     public void perform(Task task) {
         LogService.sendLog(getType() + " [" + getId() + "] starts cleaning");
         task.execute(this);
-        // креативность: собираем "мусор"
-        try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ignored) {
+
+        }
         LogService.sendLog(getType() + " [" + getId() + "] finished cleaning");
     }
 }

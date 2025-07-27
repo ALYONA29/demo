@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.task.BroadcastTask;
 import com.example.demo.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,8 +7,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskDispatcher {
 
+    private final RobotRegistry registry;
+
     @Autowired
-    private RobotRegistry registry;
+    public TaskDispatcher(RobotRegistry registry) {
+        this.registry = registry;
+    }
 
     public void dispatchTo(String robotId, Task task) {
         registry.get(robotId).ifPresent(r -> r.assign(task));
@@ -17,10 +20,5 @@ public class TaskDispatcher {
 
     public void broadcast(Task task) {
         registry.findAll().forEach(r -> r.assign(task));
-    }
-
-    public void dispatchBroadcastTask(BroadcastTask broadcastTask) {
-        Task inner = broadcastTask.getInnerTask();
-        broadcast(inner);
     }
 }

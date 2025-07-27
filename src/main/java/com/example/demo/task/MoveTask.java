@@ -6,7 +6,7 @@ import com.example.demo.service.LogService;
 import java.util.Random;
 
 public class MoveTask implements Task {
-    private static final String[] DIRECTIONS = {"NORTH", "SOUTH", "WEST", "EAST"};
+    private static final String[] DIRECTIONS = { "NORTH", "SOUTH", "WEST", "EAST" };
     private final String direction;
 
     public MoveTask() {
